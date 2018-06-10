@@ -49,11 +49,11 @@ module Players
         kill_strike(board)
         block(board)
         if board.turn_count == 2 && board.position(5) == "O"
-          return "9"
+         "9"
         elsif board.turn_count == 2 && corners.any?{ |i| board.position(i) == "O"}
-          return corners.sample
+         corners.sample
         elsif board.turn_count == 2 && edges.any?{ |i| board.position(i) == "O"}
-          return "5"
+         "5"
         elsif kill_strike(board)
           kill_strike(board)
         elsif block(board)
@@ -62,7 +62,7 @@ module Players
           corners.sample
         elsif board.cells[1, 3, 5, 7].any?{ |i| i == " " }
           edges.sample
-        else 
+        else
           edges
         end
 
