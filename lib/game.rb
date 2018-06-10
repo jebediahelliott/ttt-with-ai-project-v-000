@@ -84,7 +84,7 @@ class Game
       #   Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new)
       #   play
     if players == "1"
-      game = self.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new)
+      game = self.new(Players::Computer.new("X"), Players::Human.new("O"), board = Board.new)
       game.play
     elsif players == "2"
       game = self.new(Players::Human.new("X"), Players::Human.new("O"), board = Board.new)
