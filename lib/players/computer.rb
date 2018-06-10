@@ -63,17 +63,22 @@ module Players
         # elsif block(board)
         #   block(board)
         elsif board.cells.values_at(0, 2, 6, 8).any?{ |i| i == " " }
-            corners.sample
+          corners.sample
         elsif board.cells.values_at(1, 3, 5, 7).any?{ |i| i == " " }
           edges.sample
         else
           move_arr.sample
         end
-
       elsif self.token == "O"
-        move_arr.sample
+        if board.cells[4] == " "
+          "5"
+        elsif board.cells.values_at(0, 2, 6, 8).any?{ |i| i == " " }
+          corners.sample
+        elsif board.cells.values_at(1, 3, 5, 7).any?{ |i| i == " " }
+          edges.sample
+        else
+          move_arr.sample
+        end
       end
-    end
-
    end
 end
