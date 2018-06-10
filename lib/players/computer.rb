@@ -4,6 +4,7 @@ module Players
     attr_accessor :opp_token, :move_arr
 
     def initialize
+      super
       @move_arr = move_arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     end
 
