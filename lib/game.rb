@@ -22,7 +22,6 @@ class Game
     elsif player_2.class == Players::Computer
       player_2.opp_token = player_1.token
     end
-      
   end
 
   def current_player
