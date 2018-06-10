@@ -1,7 +1,7 @@
 require 'pry'
 module Players
   class Computer < Player
-    attr_accessor :opp_token :move_arr
+    attr_accessor :opp_token, :move_arr
 
     def initialize
       @move_arr = move_arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
