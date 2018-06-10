@@ -52,9 +52,7 @@ module Players
       if self.token == "X"
         if board.cells.all?{ |i| i == " " }
            return "1"
-        end
-
-        if board.turn_count == 2 && board.position(5) == "O"
+        elsif board.turn_count == 2 && board.position(5) == "O"
          "9"
         elsif board.turn_count == 2 && corners.any?{ |i| board.position(i) == "O"}
          corners.sample
