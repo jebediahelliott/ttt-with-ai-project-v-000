@@ -62,6 +62,6 @@ module Players
           move_arr.sample
         end
       end
-   end
-end
+    end
+  end
 end
