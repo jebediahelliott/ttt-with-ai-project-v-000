@@ -35,11 +35,9 @@ module Players
       corners = ["1", "3", "7", "9"]
       edges = ["2", "4", "6", "8"]
       center = "5"
-      edge_index = [1, 3, 5, 7]
-      corner_index = [0, 2, 6, 8]
       if self.token == "X"
         if board.cells.all?{ |i| i == " " }
-           return "1"
+         "1"
         elsif board.turn_count == 2 && board.position(5) == "O"
          "9"
         elsif board.turn_count == 2 && corners.any?{ |i| board.position(i) == "O"}
