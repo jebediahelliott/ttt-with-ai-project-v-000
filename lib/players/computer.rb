@@ -1,6 +1,9 @@
 require 'pry'
 module Players
   class Computer < Player
+    attr_accessor :opp_token
+
+
     # def display
     #   puts " #{@cells[0]} | #{@cells[1]} | #{@cells[2]} "
     #   puts "-----------"
@@ -23,14 +26,14 @@ module Players
     ]
     def block(board)
       oh_shit = WIN_COMBINATIONS.detect do |win|
-        win.select{ |i| board.cells[i] == "O"}.count == 2
+        win.select{ |i| board.cells[i] == opp_token }.count == 2
       end
       oh_shit
     end
     def kill_strike(board)
       oh_shit = WIN_COMBINATIONS.detect do |win|
         # binding.pry
-        win.select{ |i| board.cells[i] == "X"}.count == 2
+        win.select{ |i| board.cells[i] == self.token }.count == 2
       end
       oh_shit
     end
