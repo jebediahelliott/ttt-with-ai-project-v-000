@@ -51,18 +51,17 @@ module Players
         if board.cells.all?{ |i| i == " " }
            return "1"
         end
-        kill_strike(board)
-        block(board)
+        
         if board.turn_count == 2 && board.position(5) == "O"
          "9"
         elsif board.turn_count == 2 && corners.any?{ |i| board.position(i) == "O"}
          corners.sample
         elsif board.turn_count == 2 && edges.any?{ |i| board.position(i) == "O"}
          "5"
-        elsif kill_strike(board)
-          kill_strike(board)
-        elsif block(board)
-          block(board)
+        # elsif kill_strike(board)
+        #   kill_strike(board)
+        # elsif block(board)
+        #   block(board)
         elsif board.cells[0, 2, 6, 8].any?{ |i| i == " " }
           corners.sample
         elsif board.cells[1, 3, 5, 7].any?{ |i| i == " " }
