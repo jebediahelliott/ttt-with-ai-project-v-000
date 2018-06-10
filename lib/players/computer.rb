@@ -23,9 +23,9 @@ module Players
       end
       oh_shit
     end
+    
     def kill_strike(board)
       oh_shit = WIN_COMBINATIONS.detect do |win|
-        # binding.pry
         win.select{ |i| board.cells[i] == self.token }.count == 2
       end
       oh_shit
@@ -46,10 +46,6 @@ module Players
          corners.sample
         elsif board.turn_count == 2 && edges.any?{ |i| board.position(i) == "O"}
          "5"
-        # elsif kill_strike(board)
-        #   kill_strike(board)
-        # elsif block(board)
-        #   block(board)
         elsif board.cells.values_at(0, 2, 6, 8).any?{ |i| i == " " }
           corners.sample
         elsif board.cells.values_at(1, 3, 5, 7).any?{ |i| i == " " }
