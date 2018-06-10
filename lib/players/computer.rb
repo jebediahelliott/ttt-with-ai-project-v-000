@@ -23,7 +23,7 @@ module Players
       end
       oh_shit
     end
-    
+
     def kill_strike(board)
       oh_shit = WIN_COMBINATIONS.detect do |win|
         win.select{ |i| board.cells[i] == self.token }.count == 2
