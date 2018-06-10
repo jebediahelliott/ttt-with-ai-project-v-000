@@ -1,3 +1,4 @@
+require 'pry'
 class Game
 
   attr_accessor :board, :player_1, :player_2
@@ -75,13 +76,16 @@ class Game
   def self.start
     puts "How many players?"
     players = gets.strip
-      # if players == 0
-      #   Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new)
-      #   play
-    if players == "1"
-      game = self.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new)
+    if players == "0"
+      board.display
+      game = self.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new)
+      game.play
+    elsif players == "1"
+      board.display
+      game = self.new(Players::Computer.new("X"), Players::Human.new("O"), board = Board.new)
       game.play
     elsif players == "2"
+      board.display
       game = self.new(Players::Human.new("X"), Players::Human.new("O"), board = Board.new)
       game.play
     else

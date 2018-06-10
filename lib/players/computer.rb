@@ -8,7 +8,7 @@ module Players
     #   puts "-----------"
     #   puts " #{@cells[6]} | #{@cells[7]} | #{@cells[8]} "
     # end
-    # move_arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    move_arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     # # binding.pry
     # move_arr.sample
     WIN_COMBINATIONS = [
@@ -21,17 +21,40 @@ module Players
     [1,4,7],
     [2,5,8]
     ]
+    def block(board)
+      oh_shit = WIN_COMBINATIONS.detect do |win|
+        win.select{ |i| board.cells[i] == "O"}.count == 2
+      end
+      oh_shit
+    end
+    def kill_strike(board)
+      oh_shit = WIN_COMBINATIONS.detect do |win|
+        # binding.pry
+        win.select{ |i| board.cells[i] == "X"}.count == 2
+      end
+      oh_shit
+    end
 
     def move(board)
-      corners = [1, 3, 7, 9]
-      edges = [2, 4, 6, 8]
-      center = 5
-      if Game.player_1 == self
-        if board.cells.empty?
-          corners.sample
+      corners = ["1", "3", "7", "9"]
+      edges = ["2", "4", "6", "8"]
+      center = "5"
+      if self.token == "X"
+        if board.cells.all?{ |i| i == " " }
+           return "1"
         end
-      elsif Game.player_2 == self
+        kill_strike(board)
+        block(board)
+        if board.turn_count == 2 && board.position(5) == "O"
+          return "9"
+        elsif board.turn_count == 2 && corners.any?{ |i| board.position(i) == "O"}
+          return corners.sample
+        elsif board.turn_count == 2 && edges.any?{ |i| board.position(i) == "O"}
+          return "5"
+        elsif
 
+      elsif self.token == "O"
+        move_arr.sample
       end
     end
 
