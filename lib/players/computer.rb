@@ -61,6 +61,10 @@ module Players
         elsif board.cells[0, 2, 6, 8].any?{ |i| i == " " }
           corners.sample
         elsif board.cells[1, 3, 5, 7].any?{ |i| i == " " }
+          edges.sample
+        else 
+          edges
+        end
 
       elsif self.token == "O"
         move_arr.sample
