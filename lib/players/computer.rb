@@ -54,7 +54,13 @@ module Players
           return corners.sample
         elsif board.turn_count == 2 && edges.any?{ |i| board.position(i) == "O"}
           return "5"
-        elsif
+        elsif kill_strike(board)
+          kill_strike(board)
+        elsif block(board)
+          block(board)
+        elsif board.cells[0, 2, 6, 8].any?{ |i| i == " " }
+          corners.sample
+        elsif board.cells[1, 3, 5, 7].any?{ |i| i == " " }
 
       elsif self.token == "O"
         move_arr.sample
